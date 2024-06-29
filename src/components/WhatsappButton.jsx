@@ -37,7 +37,8 @@ const WhatsAppButton = ({ phoneNumber }) => {
               <div className="flex justify-center mb-4">
                 <QRCode value={qrValue} size={256} />
               </div>
-              <p className="text-center">{phoneNumber}</p>
+              <p className='text-center '>O</p>
+              <p className="text-center"> Il mio numero di telefono: <br/> +39 {phoneNumber}</p>
             </div>
             <div className="p-4 text-right">
               <button

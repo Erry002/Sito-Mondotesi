@@ -19,7 +19,7 @@ export default function Project() {
         <a href="https://www.facebook.com/people/Mondo-tesi/61551270380444/?mibextid=LQQJ4d">
           <img src={facebook} alt="" className="h-12" />
         </a>
-        <a href="#!" className="pt-2  size-20" onClick={(e) => e.preventDefault()}>
+        <a href="#!" className="pt-2 text-black size-20" onClick={(e) => e.preventDefault()}>
           <WhatsAppButton phoneNumber={myPhoneNumber} />
         </a>
         <PrivacyAndCookiePolicy />
