@@ -14,8 +14,9 @@ import instagram from "../assets/Instagram.parspng-rouge-1.png";
 //fine import per contatti
 
 import React, { useState } from "react";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 import { useIsMobile } from "../components/responsiveUtils.js";
+import WhatsAppButton from "../components/WhatsappButton.jsx";
 
 export default function Home() {
   // corpo form
@@ -26,9 +27,8 @@ export default function Home() {
   const [nomLaurea, setNomLaurea] = useState("");
   const [nomCitta, setNomCitta] = useState("");
   // const [message, setMessage] = useState("");
-  
-  const [isChecked, setIsChecked] = useState(false);
 
+  const [isChecked, setIsChecked] = useState(false);
 
   // fine script logico per controllare quale immagine deve essere visualizzata
 
@@ -46,7 +46,7 @@ export default function Home() {
     }
 
     if (!isChecked) {
-      alert('Devi accettare i termini e le condizioni')
+      alert("Devi accettare i termini e le condizioni");
       return;
     }
 
@@ -63,16 +63,20 @@ export default function Home() {
       nomLaurea,
     };
 
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Email inviata con successo!');
-      }, (error) => {
-        console.error('FAILED...', error);
-        alert('Errore nell\'invio della email, riprova.');
-      });
+    emailjs.send(serviceId, templateId, templateParams, publicKey).then(
+      (response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        alert("Email inviata con successo!");
+      },
+      (error) => {
+        console.error("FAILED...", error);
+        alert("Errore nell'invio della email, riprova.");
+      }
+    );
   };
   //fine corpo form
+
+  const myPhoneNumber = "3405018554";
 
   return (
     <div className="flex flex-col bg-white font-alata">
@@ -84,16 +88,16 @@ export default function Home() {
           <span className="text-red-700"> tesi</span>?
         </h1>
         {isMobile ? (
-          <img src={sfondo} alt="Mobile View" className="relative z-0 bg-cover" />
+          <img
+            src={sfondo}
+            alt="Mobile View"
+            className="relative z-0 bg-cover"
+          />
         ) : (
           <img src={sfondo_lungo_2} alt="Desktop View" className="" />
         )}
         <div className=" absolute bottom-20 sm:right-[100px] xl:right-[300px]">
-          <img
-            src={rosso}
-            alt=""
-            className="z-40 ml-24 "
-          />
+          <img src={rosso} alt="" className="z-40 ml-24 " />
           <h2 className="ml-20 text-2xl ">
             <span className="text-red-700">MondoTesi</span> è qui per
             <span className="text-red-700"> te</span>!
@@ -107,23 +111,25 @@ export default function Home() {
           CONTATTI
         </h1>
       </div>
-      <div className="flex justify-center "> {/* wrapper per contattami */}
+      <div className="flex justify-center ">
+        {" "}
+        {/* wrapper per contattami */}
         <div className="flex flex-col-reverse sm:items-center sm:gap-20 sm:flex-row ">
           {/* div paragrafo */}
           <div className="flex flex-col h-full sm:justify-center sm:gap-14 sm:flex-col sm:items-normal sm:w-[630px]">
             <div className="flex items-center justify-center">
               <p className="font-display mt-5 w-[80%] text-base">
-                Chiamaci o scrivici su WhatsApp, Facebook e/o Instagram per avere
-                subito un
+                Chiamaci o scrivici su WhatsApp, Facebook e/o Instagram per
+                avere subito un
                 <span className="text-[#EE2C3C]"> preventivo gratuito </span>
-                su misura per le tue specifiche esigenze, con dettagli di costi ed
-                attività.
+                su misura per le tue specifiche esigenze, con dettagli di costi
+                ed attività.
               </p>
             </div>
             {/* div icone */}
             <div className="flex justify-center sm:justify-normal items-center gap-5 mt-4 sm:my-10 sm:ml-[60px] ">
-              <a href="">
-                <img src={whatsapp} alt="" className="" />
+              <a href="#!" onClick={(e) => e.preventDefault()}>
+                <WhatsAppButton phoneNumber={myPhoneNumber} />
               </a>
               <a href="https://www.facebook.com/people/Mondo-tesi/61551270380444/?mibextid=LQQJ4d">
                 <img src={facebook} alt="" className="" />
@@ -155,12 +161,12 @@ export default function Home() {
                       placeholder="Mario"
                     />
                   </div>
-                    <TextBox
-                      title="Cognome"
-                      value={cognome}
-                      onChange={(e) => setCognome(e.target.value)}
-                      placeholder="Rossi"
-                    />
+                  <TextBox
+                    title="Cognome"
+                    value={cognome}
+                    onChange={(e) => setCognome(e.target.value)}
+                    placeholder="Rossi"
+                  />
                 </div>
                 <div className="w-full xl:flex xl:justify-between">
                   <div className="w-full mr-4 ">
@@ -203,8 +209,14 @@ export default function Home() {
               </form>
             </div>
           </div>
-          <div className=""> {/* img in versione desktop -> sm:*/}
-            <img src={contact} alt="contact" className="hidden sm:block sm:bg-cover sm:h-[630px] xl:h-[900px] " />
+          <div className="">
+            {" "}
+            {/* img in versione desktop -> sm:*/}
+            <img
+              src={contact}
+              alt="contact"
+              className="hidden sm:block sm:bg-cover sm:h-[630px] xl:h-[900px] "
+            />
           </div>
         </div>
       </div>

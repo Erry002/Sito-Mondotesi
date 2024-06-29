@@ -5,6 +5,7 @@ import { useIsMobile } from "../components/responsiveUtils.js";
 import TextBox from "../components/TextBox.jsx";
 import TextArea from "../components/TextArea.jsx";
 import CheckBox from "../components/CheckBox.jsx";
+import WhatsAppButton from "../components/WhatsappButton.jsx";
 
 import contact from "../assets/contact_us.png";
 import whatsapp from "../assets/icone-whatsapp-rouge-1.png";
@@ -57,6 +58,7 @@ function EmailRestAPI() {
         alert(`Errore nell'invio della email: ${error.text}. Riprova.`);
       });
   };
+  const myPhoneNumber = "3405018554";
 
   return (
     <div className="flex flex-col w-full min-h-screen">
@@ -78,8 +80,8 @@ function EmailRestAPI() {
               </p>
             </div>
             <div className="flex justify-center sm:justify-normal items-center gap-5 mt-4 sm:my-10 sm:ml-[60px]">
-              <a href="">
-                <img src={whatsapp} alt="WhatsApp" />
+            <a href="#!" onClick={(e) => e.preventDefault()}>
+                <WhatsAppButton phoneNumber={myPhoneNumber} />
               </a>
               <a href="https://www.facebook.com/people/Mondo-tesi/61551270380444/?mibextid=LQQJ4d">
                 <img src={facebook} alt="Facebook" />
