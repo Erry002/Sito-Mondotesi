@@ -12,7 +12,7 @@ export default function About() {
       <div className="flex justify-center items-center bg-[#EE2C3C] sm:w-full p-3 text-slate-100 text-2xl">
         <h2>CHI SIAMO</h2>
       </div>
-      <div className="relative flex flex-col items-center justify-center flex-grow">
+      <div className="relative flex flex-col items-center justify-center flex-grow ">
         {isMobile ? (
           // se vista in modalita mobile
           <div className="flex flex-col items-center text-sm text-justify">
@@ -49,7 +49,7 @@ export default function About() {
               </p>
             </div>
             <div className="mt-16 h-[396px] relative w-full">
-              <img src={sfondo2} alt="immagine_di_una_laureata" className="absolute bottom-0 w-full"/>
+              <img src={sfondo2} alt="immagine_di_una_laureata" className="absolute w-auto -bottom-7"/>
               <h2 className="absolute text-red-700 text-[18px] drop-shadow-2xl w-[166px] right-8 bottom-[300px] leading-4 text-right">
                 Non esitare a contattarmi per iniziare questo viaggio insieme!
               </h2>
@@ -69,9 +69,9 @@ export default function About() {
             <img
               src={sfondo_desktop_2}
               alt="immagine_di_una_laureata"
-              className="sm:w-[700px] xl:w-[800px]"
+              className=" sm:w-[700px] xl:w-auto"
             />
-            <div className="flex flex-col items-center justify-center ml-8 xl:ml-16">
+            <div className="flex flex-col items-center justify-center ml-8 xl:-ml-32">
               <div className="flex flex-col text-[20px]">
                 <div className="flex items-center justify-center">
                   <p className="mx-4 mt-6 text-black">
